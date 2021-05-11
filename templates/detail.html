@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Infromace o desce{% endblock %}
+
+{% block content %}
+    <hr>
+    <h2 class="text-center">{{ deska.nazev }}</h2>
+    <h4 class="text-center">{{ deska.autor }}</h4>
+    <hr>
+    <div class="row">
+        <div class="col text-center">
+            <p><img src="{{ deska.foto.url }}" alt="{{ deska.nazev }}" width="75%"></p>
+        </div>
+        <div class="col">
+            <p><b>Cena:</b> {{ deska.cena }} kč</p>
+            <hr>
+            <p><b>Hodnocení:</b> {% for star in "x"|ljust:deska.hodnoceni %} * {% endfor %}</p>
+            <hr>
+            <p>{{ deska.popis }}</p>
+        </div>
+    </div>
+{% endblock %}
